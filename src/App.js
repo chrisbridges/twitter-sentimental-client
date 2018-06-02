@@ -10,12 +10,17 @@ class App extends Component {
   constructor(props) {
     super(props);
     
-    socket.on('tweets', tweet => this.setState({tweets: tweet}));
+    socket.on('tweets', data => {
+      if (data) {
+        this.setState({tweets: data.tweetText, sentimentScore: data.sentimentScore});
+      }
+    });
     socket.emit('subscribeToTweets', 'AAPL');
   }
 
   state = {
-    tweets: []
+    tweets: null,
+    sentimentScore: null
   };
 
   componentDidMount() {
@@ -35,7 +40,7 @@ class App extends Component {
   }
 
   renderResults () {
-    const stockData = this.props.data;
+    const stockData = this.state.tweets;
     return stockData;
   }
 
@@ -57,7 +62,7 @@ class App extends Component {
             <button>Search</button>
           </form>
           <ul className="stock-search-results">
-            {this.renderResults()}
+            {this.state.tweetText}
           </ul>
         </div>
       </div>
