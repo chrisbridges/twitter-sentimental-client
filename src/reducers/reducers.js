@@ -25,8 +25,8 @@ export function stockReducer(state=initialState, action) {
       tweets: [action.data.tweet, ...state.tweets],
       loading: false,
       error: null,
-      positiveWords: addWords(state.positiveWords),
-      negativeWords: addWords(state.negativeWords)
+      positiveWords: addWords(state.positiveWords, action.data.positiveWords),
+      negativeWords: addWords(state.negativeWords, action.data.negativeWords)
     });
   }
 

@@ -3,10 +3,10 @@ import openSocket from 'socket.io-client';
 const socket = openSocket(API_BASE_URL);
 
 export const SEARCH_STOCK_REQUEST = 'SEARCH_STOCK_REQUEST';
-export const searchStockRequest = stock => {
-  type: SEARCH_STOCK_REQUEST
+export const searchStockRequest = stock => ({
+  type: SEARCH_STOCK_REQUEST,
   stock
-};
+});
 
 export const SEARCH_STOCK_SUCCESS = 'SEARCH_STOCK_SUCCESS';
 export const searchStockSuccess = data => ({
@@ -26,5 +26,5 @@ export const subscribeToStock = stock => dispatch => {
   socket.on(`symbol-${stock}`, data => {
     dispatch(searchStockSuccess(data));
   })
-    .catch(err => dispatch(searchStockError(err)));
+    // .catch(err => dispatch(searchStockError(err)));
 };

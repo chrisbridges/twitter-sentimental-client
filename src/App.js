@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {subscribeToStock} from './actions/actions';
 import './App.css';
-import {API_BASE_URL} from './config';
-import openSocket from 'socket.io-client';
-const socket = openSocket(API_BASE_URL);
+// import {API_BASE_URL} from './config';
+// import openSocket from 'socket.io-client';
+// const socket = openSocket(API_BASE_URL);
 
 class App extends Component {
 
@@ -42,24 +42,24 @@ class App extends Component {
   }
 
   renderResults () {
-    const tweets = this.state.tweets.map((tweet, index) => {
+    const tweets = this.props.tweets.map((tweet, index) => {
       return <li key={index}>{tweet}</li>
     });
     return tweets;
   }
 
-  renderWords () {
-    const positiveWords = this.state.positiveWords.map((word, index) => {
-      return <li key={index}>{word}</li>
-    });
-    const negativeWords = this.state.negativeWords.map((word, index) => {
-      return <li key={index}>{word}</li>
-    });
-    return {positiveWords, negativeWords};
-  }
+  // renderWords () {
+  //   const positiveWords = this.props.positiveWords.map((word, index) => {
+  //     return <li key={index}>{word}</li>
+  //   });
+  //   const negativeWords = this.props.negativeWords.map((word, index) => {
+  //     return <li key={index}>{word}</li>
+  //   });
+  //   return {positiveWords, negativeWords};
+  // }
 
   render() {
-    const words = this.renderWords();
+    // const words = this.renderWords();
 
     return (
       <div className="App">
@@ -68,9 +68,9 @@ class App extends Component {
             <input type="search" ref={input => this.input = input} />
             <button type="submit">Search</button>
           </form>
-          <p>{this.state.score}</p>
-          <ul className="positive-words">Positive: {words.positiveWords}</ul>
-          <ul className="negative-words">Negative: {words.negativeWords}</ul>
+          {/* <p>{this.state.score}</p>
+          {<ul className="positive-words">Positive: {words.positiveWords}</ul>
+          <ul className="negative-words">Negative: {words.negativeWords}</ul>} */}
           <ul className="stock-search-results">
             Tweets:
             {this.renderResults()}
