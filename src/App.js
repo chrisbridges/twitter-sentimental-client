@@ -20,7 +20,8 @@ class App extends Component {
     super(props);
     
     this.state = {
-      tweets: null
+      tweets: [],
+      score: 0
     };
   }
 
@@ -32,11 +33,17 @@ class App extends Component {
       return;
     }
     // this.props.dispatch(searchStocks(this.input.value));
-    // const socket = openSocket(API_BASE_URL);
     socket.emit('request-symbol', symbol);
     socket.on(`symbol-${symbol}`, data => {
-      this.setState({tweets: data});
+      this.setState({stock: symbol, tweets: [...this.state.tweets, data.tweet], score: this.state.score + data.analysis});
     });
+  }
+
+  renderResults () {
+    const tweets = this.state.tweets.map((tweet, index) => {
+      return <li key={index}>{tweet}</li>
+    });
+    return tweets;
   }
 
   render() {
@@ -47,8 +54,9 @@ class App extends Component {
             <input type="search" ref={input => this.input = input} />
             <button type="submit">Search</button>
           </form>
+          <p>{this.state.score}</p>
           <ul className="stock-search-results">
-            {this.state.tweets}
+            {this.renderResults()}
           </ul>
         </div>
       </div>
