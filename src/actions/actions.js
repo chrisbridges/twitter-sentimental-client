@@ -20,13 +20,11 @@ export const searchStockError = error => ({
   error
 });
 
-export const searchStocks = stock => dispatch => {
-  const socket = openSocket(API_BASE_URL);
-  dispatch(searchStockRequest());
-
-  socket.on('tweets', data => {
+export const subscribeToStock = stock => dispatch => {
+  dispatch(searchStockRequest(stock));
+  socket.emit('request-symbol', stock);
+  socket.on(`symbol-${stock}`, data => {
     dispatch(searchStockSuccess(data));
   })
     .catch(err => dispatch(searchStockError(err)));
-  socket.emit('subscribeToTweets', stock);
 };

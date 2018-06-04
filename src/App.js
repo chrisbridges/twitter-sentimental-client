@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {searchStocks} from './actions/actions';
+import {subscribeToStock} from './actions/actions';
 import './App.css';
 import {API_BASE_URL} from './config';
 import openSocket from 'socket.io-client';
@@ -8,43 +8,37 @@ const socket = openSocket(API_BASE_URL);
 
 class App extends Component {
 
-  // componentDidMount() {
-  //   const socket = openSocket(API_BASE_URL);
-  //   socket.on('tweets', data => {
-  //     console.log(data);
-  //   });
-  //   socket.emit('subscribeToTweets', 'AAPL');
-  // }
-
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
     
-    this.state = {
-      tweets: [],
-      score: 0,
-      positiveWords: [],
-      negativeWords: []
-    };
-  }
+  //   this.state = {
+  //     tweets: [],
+  //     score: 0,
+  //     positiveWords: [],
+  //     negativeWords: []
+  //   };
+  // }
 
   search(e) {
     e.preventDefault();
     const symbol = this.input.value;
     console.log(symbol);
+    // I think I want to keep this logic here - onSubmit
     if (symbol.trim() === '') {
       return;
     }
+    this.props.dispatch(subscribeToStock(symbol));
     // this.props.dispatch(searchStocks(this.input.value));
-    socket.emit('request-symbol', symbol);
-    socket.on(`symbol-${symbol}`, data => {
-      this.setState({stock: symbol, tweets: [data.tweet, ...this.state.tweets], score: this.state.score + data.score});
-      if (data.positiveWords.length > 0) {
-        this.setState({positiveWords: [...this.state.positiveWords, data.positiveWords]});
-      }
-      if (data.negativeWords.lenght > 0) {
-        this.setState({negativeWords: [...this.state.negativeWords, data.negativeWords]});
-      }
-    });
+    // socket.emit('request-symbol', symbol);
+    // socket.on(`symbol-${symbol}`, data => {
+    //   this.setState({stock: symbol, tweets: [data.tweet, ...this.state.tweets], score: this.state.score + data.score});
+    //   if (data.positiveWords.length > 0) {
+    //     this.setState({positiveWords: [...this.state.positiveWords, data.positiveWords]});
+    //   }
+    //   if (data.negativeWords.lenght > 0) {
+    //     this.setState({negativeWords: [...this.state.negativeWords, data.negativeWords]});
+    //   }
+    // });
   }
 
   renderResults () {
