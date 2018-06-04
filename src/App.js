@@ -37,7 +37,7 @@ class App extends Component {
     // this.props.dispatch(searchStocks(this.input.value));
     socket.emit('request-symbol', symbol);
     socket.on(`symbol-${symbol}`, data => {
-      this.setState({stock: symbol, tweets: [...this.state.tweets, data.tweet], score: this.state.score + data.score});
+      this.setState({stock: symbol, tweets: [data.tweet, ...this.state.tweets], score: this.state.score + data.score});
       if (data.positiveWords.length > 0) {
         this.setState({positiveWords: [...this.state.positiveWords, data.positiveWords]});
       }
@@ -45,7 +45,6 @@ class App extends Component {
         this.setState({negativeWords: [...this.state.negativeWords, data.negativeWords]});
       }
     });
-    // TODO: if positive / negative word arrays are empty, do not append to state
   }
 
   renderResults () {
