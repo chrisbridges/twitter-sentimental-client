@@ -1,44 +1,20 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import SentimentScore from './components/sentimentScore';
 import {subscribeToStock} from './actions/actions';
 import './App.css';
-// import {API_BASE_URL} from './config';
-// import openSocket from 'socket.io-client';
-// const socket = openSocket(API_BASE_URL);
 
 class App extends Component {
-
-  // constructor(props) {
-  //   super(props);
-    
-  //   this.state = {
-  //     tweets: [],
-  //     score: 0,
-  //     positiveWords: [],
-  //     negativeWords: []
-  //   };
-  // }
 
   search(e) {
     e.preventDefault();
     const symbol = this.input.value;
     console.log(symbol);
     if (symbol.trim() === '') {
-      alert('Please enter a valid ticker - (eg. AAPL, MSFT, TSLA');
+      alert('Please enter a valid ticker - (eg. AAPL, MSFT, TSLA)');
       return;
     }
     this.props.dispatch(subscribeToStock(symbol));
-    // this.props.dispatch(searchStocks(this.input.value));
-    // socket.emit('request-symbol', symbol);
-    // socket.on(`symbol-${symbol}`, data => {
-    //   this.setState({stock: symbol, tweets: [data.tweet, ...this.state.tweets], score: this.state.score + data.score});
-    //   if (data.positiveWords.length > 0) {
-    //     this.setState({positiveWords: [...this.state.positiveWords, data.positiveWords]});
-    //   }
-    //   if (data.negativeWords.lenght > 0) {
-    //     this.setState({negativeWords: [...this.state.negativeWords, data.negativeWords]});
-    //   }
-    // });
   }
 
   renderResults () {
@@ -48,18 +24,7 @@ class App extends Component {
     return tweets;
   }
 
-  // renderWords () {
-  //   const positiveWords = this.props.positiveWords.map((word, index) => {
-  //     return <li key={index}>{word}</li>
-  //   });
-  //   const negativeWords = this.props.negativeWords.map((word, index) => {
-  //     return <li key={index}>{word}</li>
-  //   });
-  //   return {positiveWords, negativeWords};
-  // }
-
   render() {
-    // const words = this.renderWords();
 
     return (
       <div className="App">
@@ -68,9 +33,10 @@ class App extends Component {
             <input type="search" ref={input => this.input = input} />
             <button type="submit">Search</button>
           </form>
-          {/* <p>{this.state.score}</p>
-          {<ul className="positive-words">Positive: {words.positiveWords}</ul>
-          <ul className="negative-words">Negative: {words.negativeWords}</ul>} */}
+          <SentimentScore />
+          {/* <p>{this.props.sentimentScore}</p> */}
+          {/* <ul className="positive-words">Positive: {this.props.positiveWords}</ul>
+          <ul className="negative-words">Negative: {this.props.negativeWords}</ul> */}
           <ul className="stock-search-results">
             Tweets:
             {this.renderResults()}
@@ -84,7 +50,8 @@ class App extends Component {
 const mapStateToProps = state => ({
   stock: state.stock,
   tweets: state.tweets,
-  sentimentScore: state.sentimentScore
+  positiveWords: Object.keys(state.positiveWords),
+  negativeWords: Object.keys(state.negativeWords)
 });
 
 export default connect(mapStateToProps)(App);

@@ -25,6 +25,5 @@ export const subscribeToStock = stock => dispatch => {
   socket.emit('request-symbol', stock);
   socket.on(`symbol-${stock}`, data => {
     dispatch(searchStockSuccess(data));
-  })
-  // .catch(err => dispatch(searchStockError(err)));
+  });
 };
