@@ -1,56 +1,42 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-// import {searchStocks} from './actions/actions';
+import {searchStocks} from './actions/actions';
 import './App.css';
+import {API_BASE_URL} from './config';
 import openSocket from 'socket.io-client';
-const socket = openSocket('http://localhost:8080');
+const socket = openSocket(API_BASE_URL);
 
 class App extends Component {
+
+  // componentDidMount() {
+  //   const socket = openSocket(API_BASE_URL);
+  //   socket.on('tweets', data => {
+  //     console.log(data);
+  //   });
+  //   socket.emit('subscribeToTweets', 'AAPL');
+  // }
 
   constructor(props) {
     super(props);
     
-    socket.on('tweets', data => {
-      if (data) {
-        this.setState({tweets: data.tweetText, sentimentScore: data.sentimentScore});
-      }
-    });
-    socket.emit('subscribeToTweets', 'AAPL');
-  }
-
-  state = {
-    tweets: null,
-    sentimentScore: null
-  };
-
-  componentDidMount() {
-    // const socket = io();
-    // socket.on('connection', () => {
-    //   console.log('Socket Connected');
-    //   socket.on('tweets', data => {
-    //     console.log(data);
-    //   });
-    //   socket.on('disconnect', () => {
-    //     socket.removeAllListeners("tweets");
-    //     console.log("Socket Disconnected");
-    //   });
-    // });
-    // socket.on('tweets', tweets => console.log(tweets));
-    // socket.emit('subscribeToTweets', 'AAPL');
-  }
-
-  renderResults () {
-    const stockData = this.state.tweets;
-    return stockData;
+    this.state = {
+      tweets: null
+    };
   }
 
   search(e) {
     e.preventDefault();
-    if (this.input.value.trim() === '') {
+    const symbol = this.input.value;
+    console.log(symbol);
+    if (symbol.trim() === '') {
       return;
     }
-
     // this.props.dispatch(searchStocks(this.input.value));
+    // const socket = openSocket(API_BASE_URL);
+    socket.emit('request-symbol', symbol);
+    socket.on(`symbol-${symbol}`, data => {
+      this.setState({tweets: data});
+    });
   }
 
   render() {
@@ -59,10 +45,10 @@ class App extends Component {
         <div className="stock-search">
           <form onSubmit={(e) => this.search(e)}>
             <input type="search" ref={input => this.input = input} />
-            <button>Search</button>
+            <button type="submit">Search</button>
           </form>
           <ul className="stock-search-results">
-            {this.state.tweetText}
+            {this.state.tweets}
           </ul>
         </div>
       </div>
@@ -71,7 +57,9 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  data: state.data
+  stock: state.stock,
+  tweets: state.tweets,
+  sentimentScore: state.sentimentScore
 });
 
 export default connect(mapStateToProps)(App);
