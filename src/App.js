@@ -23,8 +23,8 @@ class App extends Component {
     e.preventDefault();
     const symbol = this.input.value;
     console.log(symbol);
-    // I think I want to keep this logic here - onSubmit
     if (symbol.trim() === '') {
+      alert('Please enter a valid ticker - (eg. AAPL, MSFT, TSLA');
       return;
     }
     this.props.dispatch(subscribeToStock(symbol));
