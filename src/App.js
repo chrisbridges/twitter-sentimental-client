@@ -21,7 +21,9 @@ class App extends Component {
     
     this.state = {
       tweets: [],
-      score: 0
+      score: 0,
+      positiveWords: [],
+      negativeWords: []
     };
   }
 
@@ -35,8 +37,9 @@ class App extends Component {
     // this.props.dispatch(searchStocks(this.input.value));
     socket.emit('request-symbol', symbol);
     socket.on(`symbol-${symbol}`, data => {
-      this.setState({stock: symbol, tweets: [...this.state.tweets, data.tweet], score: this.state.score + data.analysis});
+      this.setState({stock: symbol, tweets: [...this.state.tweets, data.tweet], score: this.state.score + data.score, positiveWords: [...this.state.positiveWords, data.positiveWords], negativeWords: [...this.state.negativeWords, data.negativeWords]});
     });
+    // TODO: if positive / negative word arrays are empty, do not append to state
   }
 
   renderResults () {
@@ -46,7 +49,19 @@ class App extends Component {
     return tweets;
   }
 
+  renderWords () {
+    const positiveWords = this.state.positiveWords.map((word, index) => {
+      return <li key={index}>{word}</li>
+    });
+    const negativeWords = this.state.negativeWords.map((word, index) => {
+      return <li key={index}>{word}</li>
+    });
+    return {positiveWords, negativeWords};
+  }
+
   render() {
+    const words = this.renderWords();
+
     return (
       <div className="App">
         <div className="stock-search">
@@ -55,7 +70,10 @@ class App extends Component {
             <button type="submit">Search</button>
           </form>
           <p>{this.state.score}</p>
+          <ul className="positive-words">Positive: {words.positiveWords}</ul>
+          <ul className="negative-words">Negative: {words.negativeWords}</ul>
           <ul className="stock-search-results">
+            Tweets:
             {this.renderResults()}
           </ul>
         </div>
