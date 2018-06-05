@@ -6,14 +6,14 @@ export class stockSearch extends Component {
 
   search(e) {
     e.preventDefault();
-    const symbol = this.input.value;
+    const symbol = `$${this.input.value.toUpperCase()}`;
     if (symbol.trim() === '') {
       alert('Please enter a valid ticker - (eg. AAPL, MSFT, TSLA)');
       return;
     }
     this.props.dispatch(subscribeToStock(symbol));
   }
-
+// should I use Redux Forms?
   render() {
     return (
       <div className="stock-search">
@@ -22,7 +22,7 @@ export class stockSearch extends Component {
           <button type="submit">Search</button>
         </form>
       </div>
-    )
+    );
   }
 }
 

@@ -11,8 +11,14 @@ export class sentimentWords extends Component {
     // return the 5 most frequently tweeted words
     return mostFrequentWords.splice(0,5);
   }
-
-  renderWords (words) {
+// add 'loading' prop logic to not display these messages if loading === true
+  renderWords (words, positiveOrNegative) {
+    if (words.length === 0 && positiveOrNegative === 'positive') {
+      return <p>Not a whole lot of love for {this.props.stock} right now</p>;
+    }
+    if (words.length === 0 && positiveOrNegative === 'negative') {
+      return <p>Nothing negative to report about {this.props.stock} for now</p>;
+    }
     return words.map((word, index) => {
       return <li key={index}>{word}</li>
     });
@@ -24,11 +30,11 @@ export class sentimentWords extends Component {
         <h1>What are people saying?</h1>
         <h2>Positive:</h2>
         <ul className="positive-words">
-          {this.renderWords(this.findMostFrequentWords(this.props.positiveWords))}
+          {this.renderWords(this.findMostFrequentWords(this.props.positiveWords), 'positive')}
         </ul>
         <h2>Negative:</h2>
         <ul className="negative-words">
-          {this.renderWords(this.findMostFrequentWords(this.props.negativeWords))}
+          {this.renderWords(this.findMostFrequentWords(this.props.negativeWords), 'negative')}
         </ul>
       </div>
     )
@@ -36,6 +42,7 @@ export class sentimentWords extends Component {
 }
 
 const mapStateToProps = state => ({
+  stock: state.stock,
   positiveWords: state.positiveWords,
   negativeWords: state.negativeWords
 });

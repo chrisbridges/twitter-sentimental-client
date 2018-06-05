@@ -5,7 +5,8 @@ export class tweets extends Component {
 
   renderTweets () {
     return this.props.tweets.map((tweet, index) => {
-      return <li key={index}>{tweet}</li>
+      console.log(tweet);
+      return <li key={index}>{tweet.text}</li>
     });
   }
 
