@@ -13,10 +13,10 @@ export class sentimentWords extends Component {
   }
 // add 'loading' prop logic to not display these messages if loading === true
   renderWords (words, positiveOrNegative) {
-    if (words.length === 0 && positiveOrNegative === 'positive') {
+    if (this.props.tweets.length >= 1 && words.length === 0 && positiveOrNegative === 'positive') {
       return <p>Not a whole lot of love for {this.props.stock} right now</p>;
     }
-    if (words.length === 0 && positiveOrNegative === 'negative') {
+    if (this.props.tweets.length >= 1 && words.length === 0 && positiveOrNegative === 'negative') {
       return <p>Nothing negative to report about {this.props.stock} for now</p>;
     }
     return words.map((word, index) => {
@@ -43,6 +43,7 @@ export class sentimentWords extends Component {
 
 const mapStateToProps = state => ({
   stock: state.stock,
+  tweets: state.tweets,
   positiveWords: state.positiveWords,
   negativeWords: state.negativeWords
 });
