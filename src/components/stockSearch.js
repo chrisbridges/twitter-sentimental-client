@@ -7,7 +7,7 @@ export class stockSearch extends Component {
   search(e) {
     e.preventDefault();
     const symbol = this.input.value;
-    console.log(symbol);
+    // console.log(symbol);
     if (symbol.trim() === '') {
       alert('Please enter a valid ticker - (eg. AAPL, MSFT, TSLA)');
       return;

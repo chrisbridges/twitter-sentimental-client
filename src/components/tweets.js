@@ -12,6 +12,7 @@ export class tweets extends Component {
   render() {
     return (
       <div className="tweets">
+      <h1>Tweets:</h1>
         {this.renderTweets()}
       </div>
     )

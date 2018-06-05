@@ -41,11 +41,13 @@ export function stockReducer(state=initialState, action) {
 }
 
 function addWords (wordObj, newWords) {
+  console.log(wordObj, newWords);
   if (newWords.length === 0) {
     return wordObj;
   }
   newWords.forEach(word => {
     wordObj[word] = (wordObj[word] || 0) + 1;
   });
+  console.log(wordObj);
   return wordObj;
 }
