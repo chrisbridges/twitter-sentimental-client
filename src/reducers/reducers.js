@@ -20,13 +20,15 @@ export function stockReducer(state=initialState, action) {
   }
 
   if (action.type === SEARCH_STOCK_SUCCESS) {
+    const positiveWordsCopy = {...state.positiveWords};
+    const negativeWordsCopy = {...state.negativeWords};
     return Object.assign({}, state, {
       sentimentScore: state.sentimentScore + action.data.sentimentScore,
       tweets: [action.data.tweet, ...state.tweets],
       loading: false,
       error: null,
-      positiveWords: addWords(state.positiveWords, action.data.positiveWords),
-      negativeWords: addWords(state.negativeWords, action.data.negativeWords)
+      positiveWords: addWords(positiveWordsCopy, action.data.positiveWords),
+      negativeWords: addWords(negativeWordsCopy, action.data.negativeWords)
     });
   }
 
@@ -41,13 +43,11 @@ export function stockReducer(state=initialState, action) {
 }
 
 function addWords (wordObj, newWords) {
-  console.log(wordObj, newWords);
   if (newWords.length === 0) {
     return wordObj;
   }
   newWords.forEach(word => {
     wordObj[word] = (wordObj[word] || 0) + 1;
   });
-  console.log(wordObj);
   return wordObj;
 }
