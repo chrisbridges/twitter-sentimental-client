@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 export class sentimentWords extends Component {
 
   findMostFrequentWords (wordsObj) {
-    console.log(wordsObj);
     let words = Object.keys(wordsObj);
     const mostFrequentWords = words.sort((word1, word2) => {
       return wordsObj[word2] - wordsObj[word1];
@@ -14,14 +13,12 @@ export class sentimentWords extends Component {
   }
 
   renderWords (words) {
-    console.log(words);
     return words.map((word, index) => {
       return <li key={index}>{word}</li>
     });
   }
 
   render() {
-    console.log(this.props.positiveWords);
     return (
       <div className="sentiment-words">
         <h1>What are people saying?</h1>

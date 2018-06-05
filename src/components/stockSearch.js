@@ -7,7 +7,6 @@ export class stockSearch extends Component {
   search(e) {
     e.preventDefault();
     const symbol = this.input.value;
-    // console.log(symbol);
     if (symbol.trim() === '') {
       alert('Please enter a valid ticker - (eg. AAPL, MSFT, TSLA)');
       return;
@@ -27,8 +26,10 @@ export class stockSearch extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  stock: state.stock
-});
+// const mapStateToProps = state => ({
+//   stock: state.stock
+// });
 
-export default connect(mapStateToProps)(stockSearch);
+export default connect()(stockSearch);
+
+// export default stockSearch;
