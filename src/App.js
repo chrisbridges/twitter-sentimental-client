@@ -11,6 +11,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <header>
+          <h1>Pulse</h1>
+          <h2>Performing Real-time Sentimental Analysis on Stocks</h2>
+        </header>
         <StockSearch />
         <SentimentScore />
         <SentimentWords />

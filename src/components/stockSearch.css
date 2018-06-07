@@ -1,0 +1,12 @@
+.stock-search {
+  
+}
+
+.stock-search input[type="search"] {
+
+  /* display: flex;
+  align-items: center; */
+  width: 80%;
+  max-width: 200px;
+  padding: 40px;
+}

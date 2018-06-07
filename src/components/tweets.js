@@ -1,19 +1,40 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import './tweets.css';
+import PropTypes from 'prop-types';
+import { RingLoader } from 'react-spinners';
 
-export class tweets extends Component {
+export class Tweets extends Component {
+
+  renderSpinner (loading) {
+    if (loading) {
+      return <RingLoader
+        color={'#123abc'} 
+        loading={loading}
+      />
+    }
+    return this.renderTweets();
+  }
 
   renderTweets () {
     return this.props.tweets.map((tweet, index) => {
-      console.log(tweet);
-      return <li key={index}><img src={tweet.userImage} alt="user profile" /><p>@{tweet.username}</p><p>{tweet.text}</p></li>
+      return (
+      <li key={index}>
+        <div className="tweet">
+          <div className="tweet-text-container">
+            <img className="tweet-user-image" src={tweet.userImage} alt="user profile" />
+            <p className="tweet-text">{tweet.text}</p>
+            <p className="tweet-username">- @{tweet.username}</p>
+          </div>
+        </div>
+      </li>
+      );
     });
   }
 
   render() {
     return (
       <div className="tweets">
-      <h1>Tweets:</h1>
         {this.renderTweets()}
       </div>
     )
@@ -21,7 +42,13 @@ export class tweets extends Component {
 }
 
 const mapStateToProps = state => ({
-  tweets: state.tweets
+  tweets: state.tweets,
+  loading: Boolean(state.tweets.length)
 });
 
-export default connect(mapStateToProps)(tweets);
+Tweets.propTypes = {
+  loading: PropTypes.bool.isRequired,
+  tweets: PropTypes.array
+};
+
+export default connect(mapStateToProps)(Tweets);

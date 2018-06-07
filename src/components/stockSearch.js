@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {subscribeToStock} from '../actions/actions';
+import './stockSearch.css';
 
 export class stockSearch extends Component {
 
