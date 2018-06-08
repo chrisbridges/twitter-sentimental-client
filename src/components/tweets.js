@@ -15,7 +15,7 @@ export class Tweets extends Component {
     }
     return this.renderTweets();
   }
-
+// make sure you're passing in 'this.props.loading' for renderSpinner()
   renderTweets () {
     return this.props.tweets.map((tweet, index) => {
       return (
