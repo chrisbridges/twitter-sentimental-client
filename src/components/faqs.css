@@ -1,12 +1,14 @@
-#app {
+.FAQs-container {
+  margin: 0 auto;
   background: #fff;
   border-radius: 4px;
-  padding: 20px;
-  transition: all 0.2s;
+  max-width: 500px;
+  transition: all 1s;
 }
 
-h2 {
-   margin-bottom: 11px;
+h1 {
+  /* color: black; */
+  /* margin-bottom: 11px; */
 }
 
 .item + .item {
@@ -14,12 +16,13 @@ h2 {
 }
 
 .question {
-  font-weight: bold;
+  /* font-weight: bold; */
   cursor: pointer;
 }
 
 .answer {
    display: none;
+   font-style: italic;
 }
 
 .open .answer {
