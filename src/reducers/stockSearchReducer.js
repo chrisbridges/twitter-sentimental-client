@@ -1,4 +1,4 @@
-import {SEARCH_STOCK_REQUEST, SEARCH_STOCK_SUCCESS, SEARCH_STOCK_ERROR} from '../actions/actions';
+import {SEARCH_STOCK_REQUEST, SEARCH_STOCK_SUCCESS, SEARCH_STOCK_ERROR} from '../actions/stockSearchActions';
 
 const initialState = {
   stock: null,

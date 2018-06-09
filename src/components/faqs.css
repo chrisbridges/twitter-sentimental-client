@@ -1,0 +1,27 @@
+#app {
+  background: #fff;
+  border-radius: 4px;
+  padding: 20px;
+  transition: all 0.2s;
+}
+
+h2 {
+   margin-bottom: 11px;
+}
+
+.item + .item {
+  margin-top: 11px;
+}
+
+.question {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.answer {
+   display: none;
+}
+
+.open .answer {
+  display: block;
+}

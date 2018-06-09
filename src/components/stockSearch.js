@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {subscribeToStock} from '../actions/actions';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import {subscribeToStock} from '../actions/stockSearchActions';
+// import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import {withRouter} from 'react-router';
 import './stockSearch.css';
 
 export class stockSearch extends Component {
-
+// TODO: if another stock is searched for after initial search, disconnect previous socket
+  // also do whenever anyone routes back to index route '/'
   search(e) {
     e.preventDefault();
     const symbol = `$${this.input.value.toUpperCase()}`;
@@ -30,10 +31,4 @@ export class stockSearch extends Component {
   }
 }
 
-// const mapStateToProps = state => ({
-//   stock: state.stock
-// });
-
 export default withRouter(connect()(stockSearch));
-
-// export default stockSearch;
