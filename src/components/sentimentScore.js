@@ -5,7 +5,7 @@ import './sentimentScore.css';
 export class sentimentScore extends Component {
   render() {
     return (
-      <div className="sentiment-score">
+      <div className="sentiment-score col">
         <h1> Sentiment Score:</h1>
         {this.props.sentimentScore}
       </div>

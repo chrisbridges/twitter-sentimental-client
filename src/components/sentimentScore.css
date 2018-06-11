@@ -1,10 +1,9 @@
 .sentiment-score {
-
+  border-radius: 5px;
+  background-color: rgb(247, 247, 247);
 }
 
 /* Non-mobile, grid */
 @media only screen and (min-width: 640px) {
-  .sentiment-score {
-    float: right;
-  }
+  
 }

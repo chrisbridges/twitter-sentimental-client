@@ -27,7 +27,7 @@ export class sentimentWords extends Component {
 
   render() {
     return (
-      <div className="sentiment-words">
+      <div className="sentiment-words col">
         <div className="positive-words">
           <h2>Positive:</h2>
           <ul>

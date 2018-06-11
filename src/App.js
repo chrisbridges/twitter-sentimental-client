@@ -24,13 +24,11 @@ class App extends Component {
           <FAQs />
           <main>
             <Route exact path="/analysis" component={() => 
-              <div>
-                <h1>What are people saying?</h1>
+              <div className="analysis">
+                {/* <h1>What are people saying?</h1> */}
                 <Tweets />
-                <div className="sentiment">
-                  <SentimentWords />
-                  <SentimentScore />
-                </div>
+                <SentimentWords />
+                <SentimentScore />
               </div>} 
             />
           </main>

@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  padding: 5px 10px;
+  /* padding: 5px 10px; */
 }
 
 
@@ -14,7 +14,15 @@ h1, h2 {
 } */
 
 @media only screen and (min-width: 640px) {
-  .sentiment {
-    float: right;
+  .analysis {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .col {
+    /* justify-content: space-between; */
+    /* flex: 1; */
+    width: 30%;
+    /* margin: 0 10px 0 0; */
   }
 }
