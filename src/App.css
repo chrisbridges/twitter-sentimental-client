@@ -17,6 +17,7 @@ h1, h2 {
   .analysis {
     display: flex;
     justify-content: space-around;
+    margin-bottom: 20px;
   }
 
   .col {

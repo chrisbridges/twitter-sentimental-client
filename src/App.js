@@ -4,9 +4,10 @@ import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import TypedStocks from './components/TypedStocks';
 import StockSearch from './components/stockSearch';
 import FAQs from './components/faqs';
+import Tweets from './components/tweets';
 import SentimentScore from './components/sentimentScore';
 import SentimentWords from './components/sentimentWords';
-import Tweets from './components/tweets';
+import Chart from './components/Chart';
 import './App.css';
 
 class App extends Component {
@@ -31,6 +32,7 @@ class App extends Component {
                 <SentimentScore />
               </div>} 
             />
+            <Chart />
           </main>
         </div>
       </Router>
