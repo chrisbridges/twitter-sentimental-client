@@ -1,3 +1,7 @@
 .typed-cursor {
   opacity: 0;
 }
+
+.typed-stocks h1 {
+  font-size: 16px;
+}
