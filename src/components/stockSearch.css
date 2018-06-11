@@ -1,6 +1,6 @@
-.stock-search {
+/* .stock-search {
   
-}
+} */
 
 .stock-search input[type="search"] {
 
@@ -9,4 +9,5 @@
   width: 80%;
   max-width: 200px;
   padding: 40px;
+  line-height: 50px;
 }

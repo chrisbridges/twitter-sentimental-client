@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import './sentimentScore.css';
 
 export class sentimentScore extends Component {
   render() {

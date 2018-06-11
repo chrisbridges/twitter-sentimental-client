@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import './sentimentWords.css';
 
 export class sentimentWords extends Component {
 
@@ -27,15 +28,18 @@ export class sentimentWords extends Component {
   render() {
     return (
       <div className="sentiment-words">
-        <h1>What are people saying?</h1>
-        <h2>Positive:</h2>
-        <ul className="positive-words">
-          {this.renderWords(this.findMostFrequentWords(this.props.positiveWords), 'positive')}
-        </ul>
-        <h2>Negative:</h2>
-        <ul className="negative-words">
-          {this.renderWords(this.findMostFrequentWords(this.props.negativeWords), 'negative')}
-        </ul>
+        <div className="positive-words">
+          <h2>Positive:</h2>
+          <ul>
+            {this.renderWords(this.findMostFrequentWords(this.props.positiveWords), 'positive')}
+          </ul>
+        </div>
+        <div className="negative-words">
+          <h2>Negative:</h2>
+          <ul>
+            {this.renderWords(this.findMostFrequentWords(this.props.negativeWords), 'negative')}
+          </ul>
+        </div>
       </div>
     )
   }

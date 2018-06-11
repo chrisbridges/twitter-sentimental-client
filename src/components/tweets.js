@@ -21,11 +21,9 @@ export class Tweets extends Component {
       return (
       <li key={index}>
         <div className="tweet">
-          <div className="tweet-text-container">
-            <img className="tweet-user-image" src={tweet.userImage} alt="user profile" />
-            <p className="tweet-text">{tweet.text}</p>
-            <p className="tweet-username">- @{tweet.username}</p>
-          </div>
+          <img className="tweet-user-image" src={tweet.userImage} alt="user profile" />
+          <p className="tweet-text">{tweet.text}</p>
+          <p className="tweet-username">- @{tweet.username}</p>
         </div>
       </li>
       );
@@ -34,9 +32,10 @@ export class Tweets extends Component {
 
   render() {
     return (
-      <div className="tweets">
-        {this.renderTweets()}
-      </div>
+        <div className="tweets">
+          <h1>Tweets:</h1>
+          <ul>{this.renderTweets()}</ul>
+        </div>
     )
   }
 }

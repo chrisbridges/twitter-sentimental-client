@@ -1,6 +1,6 @@
 import {API_BASE_URL} from '../config';
 import openSocket from 'socket.io-client';
-const socket = openSocket(API_BASE_URL);
+// const socket = openSocket(API_BASE_URL);
 
 export const SEARCH_STOCK_REQUEST = 'SEARCH_STOCK_REQUEST';
 export const searchStockRequest = stock => ({
@@ -21,6 +21,7 @@ export const searchStockError = error => ({
 });
 
 export const subscribeToStock = stock => dispatch => {
+  const socket = openSocket(API_BASE_URL);
   dispatch(searchStockRequest(stock));
   socket.emit('request-symbol', stock);
   socket.on(`symbol-${stock}`, data => {
