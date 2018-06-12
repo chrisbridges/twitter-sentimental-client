@@ -39,6 +39,7 @@ export function stockReducer(state=initialState, action) {
       loading: false
     });
   }
+  
   return state;
 }
 

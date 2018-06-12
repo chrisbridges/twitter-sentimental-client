@@ -1,46 +1,19 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 import Chart from 'chart.js';
+import PropTypes from 'prop-types';
 import chartStreaming from 'chartjs-plugin-streaming';
 import './Chart.css';
 
 export class MyChart extends Component {
 
-//   componentDidMount () {
-//     const ctx = document.getElementById('myChart').getContext('2d');
-
-//     let chart = new Chart(ctx, {
-//       type: 'line',
-//       data: {
-//         labels: ['Red', 'Blue'],
-//         datasets: [{
-//           data: []
-//         },{
-//           data: []
-//         }]
-//       },
-//       options: {
-//         scales: {
-//           xAxes: [{
-//             type: 'realtime'
-//           }]
-//         },
-//         plugins: {
-//           streaming: {
-//             // onRefresh: function (chart) {
-//             //   chart.data.datasets.forEach(function(dataSet) {
-//             //     dataset.data.push({
-//             //       x: Date.now(),
-//             //       y: Math.random()
-//             //     });
-//             //   });
-//             // }
-//           }
-//         }
-//       }
-//     });
-//   }
+  constructor(props) {
+    super(props);
+    // this.retrieveScore = this.retrieveScore.bind(this);
+  }
 
   componentDidMount () {
+    let score = () => this.retrieveScore();
     var ctx = document.getElementById("myChart").getContext('2d');
     var myChart = new Chart(ctx, {
       type: 'line',               // 'line', 'bar', 'bubble' and 'scatter' types are supported
@@ -64,16 +37,21 @@ export class MyChart extends Component {
   
                   // a callback to update datasets
                   onRefresh: function(chart) {
-                      chart.data.datasets[0].data.push({
-                          x: Date.now(),
-                          y: Math.random() * 100
-                      });
+                    // let score = this.retrieveScore();
+                    chart.data.datasets[0].data.push({
+                        x: Date.now(),
+                        y: score()
+                    });
                   }
               }
           }
       }
   }
     );
+  }
+
+  retrieveScore () {
+    return this.props.sentimentScore;
   }
 
   render() {
@@ -85,4 +63,12 @@ export class MyChart extends Component {
   }
 }
 
-export default MyChart;
+const mapStateToProps = state => ({
+  sentimentScore: state.sentimentScore
+});
+
+MyChart.propTypes = {
+  sentimentScore: PropTypes.number.isRequired
+};
+
+export default connect(mapStateToProps)(MyChart);

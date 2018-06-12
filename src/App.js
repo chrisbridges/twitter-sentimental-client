@@ -30,9 +30,10 @@ class App extends Component {
                 <Tweets />
                 <SentimentWords />
                 <SentimentScore />
+                <Chart />
               </div>} 
             />
-            <Chart />
+            {/* <Chart /> */}
           </main>
         </div>
       </Router>
