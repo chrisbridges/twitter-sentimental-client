@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import TypedStocks from './components/TypedStocks';
 import StockSearch from './components/stockSearch';
 import FAQs from './components/faqs';
+import Accordion from './components/Accordion';
 import Tweets from './components/tweets';
 import SentimentScore from './components/sentimentScore';
 import SentimentWords from './components/sentimentWords';
@@ -22,7 +23,8 @@ class App extends Component {
             <TypedStocks />
           </header>
           <StockSearch />
-          <FAQs />
+          <Accordion />
+          {/* <FAQs /> */}
           <main>
             <Route exact path="/analysis" component={() => 
               <div className="dashboard">
