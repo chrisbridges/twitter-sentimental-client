@@ -30,7 +30,7 @@ export class MyChart extends Component {
           },
           plugins: {
               streaming: {            // enabled by default
-                  duration: 20000,    // data in the past 20000 ms will be displayed
+                  duration: 60000,    // data in the past 20000 ms will be displayed
                   refresh: 1000,      // onRefresh callback will be called every 1000 ms
                   delay: 1000,        // delay of 1000 ms, so upcoming values are known before plotting a line
                   frameRate: 30,      // chart is drawn 30 times every second

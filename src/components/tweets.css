@@ -10,7 +10,12 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); */
   border-radius: 5px;
   background-color: rgb(247, 247, 247);
+}
 
+.tweets h1 {
+  position: sticky;
+  top: 0;
+  background-color: rgb(247, 247, 247);
 }
 
 .tweet {
