@@ -25,11 +25,13 @@ class App extends Component {
           <FAQs />
           <main>
             <Route exact path="/analysis" component={() => 
-              <div className="analysis">
-                {/* <h1>What are people saying?</h1> */}
-                <Tweets />
-                <SentimentWords />
-                <SentimentScore />
+              <div className="dashboard">
+                <div className="analysis">
+                  {/* <h1>What are people saying?</h1> */}
+                  <Tweets />
+                  <SentimentWords />
+                  <SentimentScore />
+                </div>
                 <Chart />
               </div>} 
             />
