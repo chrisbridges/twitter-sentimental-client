@@ -6,7 +6,7 @@ const initialState = {
   tweets: [],
   positiveWords: {},
   negativeWords: {},
-  loading: false,
+  loading: null,
   error: null
 };
 
@@ -25,7 +25,7 @@ export function stockReducer(state=initialState, action) {
     return Object.assign({}, state, {
       sentimentScore: state.sentimentScore + action.data.sentimentScore,
       tweets: [action.data.tweet, ...state.tweets],
-      loading: false,
+      loading: !Boolean(action.data.tweet), // if no tweets have been received yet, consider that loading, once tweet has been received, no longer loading
       error: null,
       positiveWords: addWords(positiveWordsCopy, action.data.positiveWords),
       negativeWords: addWords(negativeWordsCopy, action.data.negativeWords)

@@ -24,11 +24,11 @@ export class stockSearch extends Component {
     // }
   }
 
-  renderAnalysis () {
-    if (this.props.receivedTweets) {
-      this.props.history.push('/analysis');
-    }
-  }
+  // renderAnalysis () {
+  //   if (this.props.receivedTweets) {
+  //     this.props.history.push('/analysis');
+  //   }
+  // }
 
 // should I use Redux Forms?
   render() {
@@ -44,9 +44,9 @@ export class stockSearch extends Component {
 }
 
 const mapStateToProps = state => ({
-  receivedTweets: state.tweets.length > 0
+  // receivedTweets: state.tweets.length > 0
 });
 
 // export default withRouter(connect(mapStateToProps)(stockSearch));
 
-export default connect(mapStateToProps)(stockSearch);
+export default connect()(stockSearch);

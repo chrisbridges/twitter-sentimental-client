@@ -15,25 +15,28 @@ import './App.css';
 class App extends Component {
 
   renderAnalysis () {
-    if (this.props.receivedTweets) {
-      return (
-        <div className="dashboard">
-          <div className="analysis">
-            {/* <h1>What are people saying?</h1> */}
-            <Tweets />
-            <SentimentWords />
-            <SentimentScore />
-          </div>
-          <Chart />
-        </div>
-      );
+    if (this.props.loading === null) {
+      return null;
     }
-    return this.renderLoader();
+    if (this.props.loading === true) {
+      return this.renderLoader();
+    }
+    return (
+      <div className="dashboard">
+        <div className="analysis">
+          {/* <h1>What are people saying?</h1> */}
+          <Tweets />
+          <SentimentWords />
+          <SentimentScore />
+        </div>
+        <Chart />
+      </div>
+    );
   }
 
   renderLoader () {
     return (
-      <BounceLoader color={'#4A90E2'} loading={!this.props.receivedTweets} />
+      <BounceLoader color={'#4A90E2'} loading={this.props.loading} />
     );
   }
 
@@ -61,7 +64,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  receivedTweets: state.tweets.length > 0
+  loading: state.loading
 });
 
 export default connect(mapStateToProps)(App);
