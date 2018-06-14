@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import Chart from 'chart.js';
 import PropTypes from 'prop-types';
 import chartStreaming from 'chartjs-plugin-streaming';
-import './Chart.css';
+// import './Chart.css';
 
 export class MyChart extends Component {
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './faqs.css';
+// import './faqs.css';
 
 const FAQ = ({onClick, open, item}) =>  <div className="item">
 <p className='question' onClick={onClick}>

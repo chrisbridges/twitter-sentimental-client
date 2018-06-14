@@ -10,7 +10,7 @@ import Tweets from './components/tweets';
 import SentimentScore from './components/sentimentScore';
 import SentimentWords from './components/sentimentWords';
 import Chart from './components/Chart';
-import './App.css';
+// import './App.css';
 
 class App extends Component {
 
@@ -36,7 +36,12 @@ class App extends Component {
 
   renderLoader () {
     return (
-      <BounceLoader color={'#4A90E2'} loading={this.props.loading} />
+      <div className="loading">
+        <div className="loading-spinner">
+          <BounceLoader color={'#4A90E2'} loading={this.props.loading} />
+        </div>
+        <p>{"\n"}Waiting for someone to tweet something about {this.props.stock}</p>
+      </div>
     );
   }
 
@@ -64,7 +69,8 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  loading: state.loading
+  loading: state.loading,
+  stock: state.stock
 });
 
 export default connect(mapStateToProps)(App);

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Typed from 'typed.js';
-import './TypedStocks.css';
+// import './TypedStocks.css';
 
 export class TypedStocks extends Component {
 
