@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {subscribeToStock, returnToDefaultState} from '../actions/stockSearchActions';
 // import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
-import {withRouter} from 'react-router';
+// import {withRouter} from 'react-router';
 import './stockSearch.css';
 
 export class stockSearch extends Component {
@@ -47,4 +47,6 @@ const mapStateToProps = state => ({
   receivedTweets: state.tweets.length > 0
 });
 
-export default withRouter(connect(mapStateToProps)(stockSearch));
+// export default withRouter(connect(mapStateToProps)(stockSearch));
+
+export default connect(mapStateToProps)(stockSearch);
