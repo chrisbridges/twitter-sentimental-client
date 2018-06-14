@@ -1,4 +1,4 @@
-import {SEARCH_STOCK_REQUEST, SEARCH_STOCK_SUCCESS, SEARCH_STOCK_ERROR} from '../actions/stockSearchActions';
+import {SEARCH_STOCK_REQUEST, SEARCH_STOCK_SUCCESS, SEARCH_STOCK_ERROR, RETURN_TO_DEFAULT_STATE} from '../actions/stockSearchActions';
 
 const initialState = {
   stock: null,
@@ -38,6 +38,10 @@ export function stockReducer(state=initialState, action) {
       error: action.error,
       loading: false
     });
+  }
+
+  if (action.type = RETURN_TO_DEFAULT_STATE) {
+    return Object.assign({}, initialState);
   }
   
   return state;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import {connect} from 'react-redux';
+import {connect} from 'react-redux';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import TypedStocks from './components/TypedStocks';
 import StockSearch from './components/stockSearch';
@@ -12,6 +12,23 @@ import Chart from './components/Chart';
 import './App.css';
 
 class App extends Component {
+
+  renderAnalysis () {
+    if (this.props.receivedTweets) {
+      return (
+        <div className="dashboard">
+          <div className="analysis">
+            {/* <h1>What are people saying?</h1> */}
+            <Tweets />
+            <SentimentWords />
+            <SentimentScore />
+          </div>
+          <Chart />
+        </div>
+      );
+    }
+    return null;
+  }
 
   render() {
     return (
@@ -26,17 +43,9 @@ class App extends Component {
           <Accordion />
           {/* <FAQs /> */}
           <main>
-            <Route exact path="/analysis" component={() => 
-              <div className="dashboard">
-                <div className="analysis">
-                  {/* <h1>What are people saying?</h1> */}
-                  <Tweets />
-                  <SentimentWords />
-                  <SentimentScore />
-                </div>
-                <Chart />
-              </div>} 
-            />
+            {/* <Route exact path="/analysis" component={() =>  */}
+            {this.renderAnalysis()}
+            {/* }/> */}
             {/* <Chart /> */}
           </main>
         </div>
@@ -45,4 +54,8 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  receivedTweets: state.tweets.length > 0
+});
+
+export default connect(mapStateToProps)(App);
