@@ -4,8 +4,7 @@ import {BounceLoader} from 'react-spinners';
 // import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import TypedStocks from './components/TypedStocks';
 import StockSearch from './components/stockSearch';
-import FAQs from './components/faqs';
-import Accordion from './components/Accordion';
+import FAQs from './components/Faqs';
 import Tweets from './components/tweets';
 import SentimentScore from './components/sentimentScore';
 import SentimentWords from './components/sentimentWords';
@@ -38,7 +37,7 @@ class App extends Component {
     return (
       <div className="loading">
         <div className="loading-spinner">
-          <BounceLoader color={'#4A90E2'} loading={this.props.loading} />
+          <BounceLoader color={'#45B25C'} loading={this.props.loading} />
         </div>
         <p>{"\n"}Waiting for someone to tweet something about {this.props.stock}</p>
       </div>
@@ -54,8 +53,7 @@ class App extends Component {
           <TypedStocks />
         </header>
         <StockSearch />
-        <Accordion />
-        {/* <FAQs /> */}
+        <FAQs />
         <main>
           {/* <Route exact path="/analysis" component={() =>  */}
           {/* {this.renderAnalysis()} */}

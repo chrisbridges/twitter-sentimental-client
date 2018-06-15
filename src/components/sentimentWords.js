@@ -15,10 +15,10 @@ export class sentimentWords extends Component {
 // add 'loading' prop logic to not display these messages if loading === true
   renderWords (words, positiveOrNegative) {
     if (this.props.tweets.length >= 1 && words.length === 0 && positiveOrNegative === 'positive') {
-      return <p>Not a whole lot of love for {this.props.stock} right now</p>;
+      return <p>When someone tweets something positive about {this.props.stock} it will show up here</p>;
     }
     if (this.props.tweets.length >= 1 && words.length === 0 && positiveOrNegative === 'negative') {
-      return <p>Nothing negative to report about {this.props.stock} for now</p>;
+      return <p>When someone tweets something negative about {this.props.stock} it will show up here</p>;
     }
     return words.map((word, index) => {
       return <li key={index}>{word}</li>
@@ -29,13 +29,13 @@ export class sentimentWords extends Component {
     return (
       <div className="sentiment-words col">
         <div className="positive-words">
-          <h2>Positive:</h2>
+          <h1>Positive:</h1>
           <ul>
             {this.renderWords(this.findMostFrequentWords(this.props.positiveWords), 'positive')}
           </ul>
         </div>
         <div className="negative-words">
-          <h2>Negative:</h2>
+          <h1>Negative:</h1>
           <ul>
             {this.renderWords(this.findMostFrequentWords(this.props.negativeWords), 'negative')}
           </ul>

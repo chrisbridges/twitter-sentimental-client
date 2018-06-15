@@ -2,7 +2,11 @@
   opacity: 0;
 }
 
+.typed-background {
+  /* background-color: white; */
+}
+
 #typed {
   display: inline-block;
-  color: #F4C01E;
+  color: var(--my-orange);
 }

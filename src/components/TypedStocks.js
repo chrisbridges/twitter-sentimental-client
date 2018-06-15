@@ -5,7 +5,7 @@ import './TypedStocks.css';
 export class TypedStocks extends Component {
 
   componentDidMount () {
-    const stocks = ['AAPL ^500 (Apple)', 'NFLX ^500 (Netflix)', 'MSFT ^500 (Microsoft)', 'TSLA ^500 (Tesla)', 'FB ^500 (Facebook)', 'SNAP ^500 (Snapchat)', 'SPOT ^500 (Spotify)', 'Anything you\'d like :)'];
+    const stocks = ['AAPL ^500 (Apple)', 'NFLX ^500 (Netflix)', 'TWTR ^500 (Twitter)', 'TSLA ^500 (Tesla)', 'FB ^500 (Facebook)', 'SNAP ^500 (Snapchat)', 'SPOT ^500 (Spotify)', 'Anything you\'d like :)'];
     const options = {
       stringsElement: '.typed',
       strings: stocks,
@@ -19,7 +19,7 @@ export class TypedStocks extends Component {
   render() {
     return (
       <div className="typed-stocks">
-        <h1>Find out what people are saying about:<br/><span id="typed"></span></h1>
+        <h1>Find out what people are saying about:<br/><div class="typed-background"><span id="typed"></span></div></h1>
       </div>
     );
   }

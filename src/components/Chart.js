@@ -13,6 +13,9 @@ export class MyChart extends Component {
       type: 'line',               // 'line', 'bar', 'bubble' and 'scatter' types are supported
       data: {
         datasets: [{
+          label: 'Sentiment Score',
+          backgroundColor: '#45B25C',
+          borderColor: '#45B25C',
           data: []            // empty at the beggining
         }]
       },
