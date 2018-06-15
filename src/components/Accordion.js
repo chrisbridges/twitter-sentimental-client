@@ -25,8 +25,8 @@ export class AccordionFAQ extends Component {
       }
     ];
 
-    return faqs.map(item => {
-      return <AccordionItem>
+    return faqs.map((item, key) => {
+      return <AccordionItem key={key}>
         <AccordionItemTitle>
           {item.question}
         </AccordionItemTitle>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-// import './sentimentWords.css';
+import './sentimentWords.css';
 
 export class sentimentWords extends Component {
 

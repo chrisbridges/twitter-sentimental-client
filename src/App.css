@@ -1,6 +1,12 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
   /* padding: 5px 10px; */
+  
+}
+
+.App header {
+  text-align: center;
+  color: #f2f2f2;
 }
 
 .loading-spinner {

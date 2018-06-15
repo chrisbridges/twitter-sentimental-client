@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Typed from 'typed.js';
-// import './TypedStocks.css';
+import './TypedStocks.css';
 
 export class TypedStocks extends Component {
 
   componentDidMount () {
-    const stocks = ['AAPL ^500 (Apple)', 'MSFT ^500 (Microsoft)', 'TSLA ^500 (Tesla)', 'SNAP ^500 (Snapchat)', 'SPOT ^500 (Spotify)', 'Anything you\'d like :)'];
+    const stocks = ['AAPL ^500 (Apple)', 'NFLX ^500 (Netflix)', 'MSFT ^500 (Microsoft)', 'TSLA ^500 (Tesla)', 'FB ^500 (Facebook)', 'SNAP ^500 (Snapchat)', 'SPOT ^500 (Spotify)', 'Anything you\'d like :)'];
     const options = {
       stringsElement: '.typed',
       strings: stocks,
@@ -19,8 +19,7 @@ export class TypedStocks extends Component {
   render() {
     return (
       <div className="typed-stocks">
-        <h1>Find out what people are saying about:</h1>
-        <span id="typed"></span>
+        <h1>Find out what people are saying about:<br/><span id="typed"></span></h1>
       </div>
     );
   }

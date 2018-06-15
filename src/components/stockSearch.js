@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {subscribeToStock, returnToDefaultState} from '../actions/stockSearchActions';
 // import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 // import {withRouter} from 'react-router';
-// import './stockSearch.css';
+import './stockSearch.css';
 
 export class stockSearch extends Component {
 // TODO: if another stock is searched for after initial search, disconnect previous socket

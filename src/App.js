@@ -10,7 +10,7 @@ import Tweets from './components/tweets';
 import SentimentScore from './components/sentimentScore';
 import SentimentWords from './components/sentimentWords';
 import Chart from './components/Chart';
-// import './App.css';
+import './App.css';
 
 class App extends Component {
 

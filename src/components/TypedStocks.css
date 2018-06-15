@@ -1,3 +1,8 @@
 .typed-cursor {
   opacity: 0;
 }
+
+#typed {
+  display: inline-block;
+  color: #F4C01E;
+}
