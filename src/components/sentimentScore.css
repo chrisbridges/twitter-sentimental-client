@@ -1,6 +1,11 @@
 .sentiment-score {
   border-radius: 5px;
   background-color: rgb(247, 247, 247);
+  text-align: center;
+}
+
+.sentiment-score p {
+  font-size: 40px;
 }
 
 /* Non-mobile, grid */

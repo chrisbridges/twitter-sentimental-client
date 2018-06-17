@@ -3,5 +3,14 @@
 }
 
 .typed-stocks h1 {
-  font-size: 16px;
+  font-size: 30px;
+}
+
+.typed-background {
+  /* background-color: white; */
+}
+
+#typed {
+  display: inline-block;
+  color: var(--my-orange);
 }

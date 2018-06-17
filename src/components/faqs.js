@@ -1,84 +1,61 @@
 import React, { Component } from 'react';
-import './faqs.css';
+import {
+  Accordion,
+  AccordionItem,
+  AccordionItemTitle,
+  AccordionItemBody,
+} from 'react-accessible-accordion';
+import 'react-accessible-accordion/dist/fancy-example.css';
+import './Faqs.css';
 
-const FAQ = ({onClick, open, item}) =>  <div className="item">
-<p className='question' onClick={onClick}>
-  {item.question}
-</p>
-{open && <p className='answer'>
-{item.answer}
-</p>}
-</div>
+export class Faqs extends Component {
 
-// for icon when open, icon1, else icon2
-
-// when using && returns the first falsey value or the last truthy value
-// {open && <p className='answer'> {item.answer} --- could also use ( open ? <p> : null )
-
-
-// if component's state is used only locally, then you can use component state, rather than actions/reducers
-// stateIsLocal ? componentState : redux
-
-
-export class FAQs extends Component {
-
-  constructor(props) {
-    super(props)
-    this.state = {
-      // start the page with all questions closed
-    	selectedQuestion: -1
-    };
-    // this.openQuestion = this.openQuestion.bind(this);
-    // ensures that the 'this' for openQuestion is the same as the constructor's 'this', which is FAQs
-  }
-	
-  getFaqs() {
-  	// some service returning a list of FAQs
-  	const faqs = [
+  renderFAQs () {
+    const faqs = [
       {
         question: 'What is sentimental analysis?',
-        answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt viverra augue, non lacinia mi fermentum nec. Sed sed tellus vel ligula euismod ultrices. Etiam vitae neque pretium, efficitur neque sed, scelerisque est. Sed convallis diam ut leo interdum sollicitudin. Quisque laoreet interdum ante ut mollis. Fusce vel mauris nec erat gravida pretium. Maecenas porttitor libero tellus, ut tempus quam porta ac. Nulla pretium felis ligula, quis dapibus dolor facilisis in.'
+        answer: 'Sentimental Analysis is the computational analysis of text to determine whether the writer is expressing positive or negative emotions about the subject. Our attempt with this app is to gauge sentiment in real-time and make assumptions about whether the general public feels bullish or bearish on a particular equity based on current sentiment.'
       },
       {
         question: 'How are you conducting this analysis?',
-        answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt viverra augue, non lacinia mi fermentum nec. Sed sed tellus vel ligula euismod ultrices. Etiam vitae neque pretium, efficitur neque sed, scelerisque est. Sed convallis diam ut leo interdum sollicitudin. Quisque laoreet interdum ante ut mollis. Fusce vel mauris nec erat gravida pretium. Maecenas porttitor libero tellus, ut tempus quam porta ac. Nulla pretium felis ligula, quis dapibus dolor facilisis in.'
+        answer: 'This analysis is done by live-streaming tweets about a particular subject and then running those tweets through our sentimental analysis engine, which then determines the "Sentiment Score". This provides an easy way to determine current sentiment. A positive Sentiment Score means current sentiment is amicable about the subject, and the opposite, accordingly, for a negative score.'
+      },
+      {
+        question: 'How is the Sentiment Score calculated?',
+        answer: 'Each word has a score attached to it. Generally positive words carry a positive score, while words perceived as negative possess a negative value. The scores are then summed, and we arrive at our Sentiment Score. The most common words that are being tweeted (and affecting the Sentiment Score) are displayed in the dashboard'
       },
       {
         question: 'Should I derive investment decisions from the data that I see here?',
-        answer: 'Only if you like losing money.'
+        answer: 'Only if you like losing money. But seriously, please don\'t :).'
+      },
+      {
+        question: 'It\'s taking a long time for tweets to load.',
+        answer: 'Due to the real-time nature of this app, if Twitter users aren\'t tweeting about the subject you\'re interested in, it can take some time. If you would like to see the app really move, type in a cryptocurrency (e.g. "BTC" for Bitcoin, or "ETH" for Ethereum)'
       }
     ];
-    return faqs;
-  }
-  // just use arrow funcs
-  openQuestion = (index) =>  {
-    // when a question is opened, compare what was clicked and if we got a match, change state to show the desired question.
-  	this.setState({
-    	selectedQuestion: (this.state.selectedQuestion === index ? -1 : index)
+
+    return faqs.map((item, key) => {
+      return <AccordionItem key={key}>
+        <AccordionItemTitle>
+          {item.question}
+        </AccordionItemTitle>
+        <AccordionItemBody>
+          {item.answer}
+        </AccordionItemBody>
+      </AccordionItem>
     });
-    // condition ? a : b
-    // // if (condition) {
-    //   return a
-    // } else {
-    //   return b
-    // }
   }
-  
-  render() {
-    // get a list of FAQs
-    const faqs = this.getFaqs();
+
+  render () {
+    const FAQs = this.renderFAQs();
     return (
-      <div className="FAQs-container">
-        <h1>FAQs:</h1>
-          {faqs.length && faqs.map((item, index) => (
-            <FAQ key={`item-${index}`} item={item} open={this.state.selectedQuestion === index} onClick={() => this.openQuestion(index)} />
-          ))}
+      <div className="FAQs">
+        <Accordion>
+          {FAQs}
+        </Accordion>
       </div>
-    )
+    );
   }
 }
 
-export default FAQs;
-
-// state is internal to the component - typically doesn't need to be exposed to other components
-// props are for passing info to other components
+export default Faqs;
