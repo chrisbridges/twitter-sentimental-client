@@ -14,15 +14,23 @@ export class Faqs extends Component {
     const faqs = [
       {
         question: 'What is sentimental analysis?',
-        answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt viverra augue, non lacinia mi fermentum nec. Sed sed tellus vel ligula euismod ultrices. Etiam vitae neque pretium, efficitur neque sed, scelerisque est. Sed convallis diam ut leo interdum sollicitudin. Quisque laoreet interdum ante ut mollis. Fusce vel mauris nec erat gravida pretium. Maecenas porttitor libero tellus, ut tempus quam porta ac. Nulla pretium felis ligula, quis dapibus dolor facilisis in.'
+        answer: 'Sentimental Analysis is the computational analysis of text to determine whether the writer is expressing positive or negative emotions about the subject. Our attempt with this app is to gauge sentiment in real-time and make assumptions about whether the general public feels bullish or bearish on a particular equity based on current sentiment.'
       },
       {
         question: 'How are you conducting this analysis?',
-        answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt viverra augue, non lacinia mi fermentum nec. Sed sed tellus vel ligula euismod ultrices. Etiam vitae neque pretium, efficitur neque sed, scelerisque est. Sed convallis diam ut leo interdum sollicitudin. Quisque laoreet interdum ante ut mollis. Fusce vel mauris nec erat gravida pretium. Maecenas porttitor libero tellus, ut tempus quam porta ac. Nulla pretium felis ligula, quis dapibus dolor facilisis in.'
+        answer: 'This analysis is done by live-streaming tweets about a particular subject and then running those tweets through our sentimental analysis engine, which then determines the "Sentiment Score". This provides an easy way to determine current sentiment. A positive Sentiment Score means current sentiment is amicable about the subject, and the opposite, accordingly, for a negative score.'
+      },
+      {
+        question: 'How is the Sentiment Score calculated?',
+        answer: 'Each word has a score attached to it. Generally positive words carry a positive score, while words perceived as negative possess a negative value. The scores are then summed, and we arrive at our Sentiment Score. The most common words that are being tweeted (and affecting the Sentiment Score) are displayed in the dashboard'
       },
       {
         question: 'Should I derive investment decisions from the data that I see here?',
-        answer: 'Only if you like losing money.'
+        answer: 'Only if you like losing money. But seriously, please don\'t :).'
+      },
+      {
+        question: 'It\'s taking a long time for tweets to load.',
+        answer: 'Due to the real-time nature of this app, if Twitter users aren\'t tweeting about the subject you\'re interested in, it can take some time. If you would like to see the app really move, type in a cryptocurrency (e.g. "BTC" for Bitcoin, or "ETH" for Ethereum)'
       }
     ];
 

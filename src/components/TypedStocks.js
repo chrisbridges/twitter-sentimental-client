@@ -19,7 +19,7 @@ export class TypedStocks extends Component {
   render() {
     return (
       <div className="typed-stocks">
-        <h1>Find out what people are saying about:<br/><div class="typed-background"><span id="typed"></span></div></h1>
+        <h1>Find out what people are saying about:<br/><div className="typed-background"><span id="typed"></span></div></h1>
       </div>
     );
   }

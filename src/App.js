@@ -55,11 +55,7 @@ class App extends Component {
         <StockSearch />
         <FAQs />
         <main>
-          {/* <Route exact path="/analysis" component={() =>  */}
-          {/* {this.renderAnalysis()} */}
           {this.renderAnalysis()}
-          {/* }/> */}
-          {/* <Chart /> */}
         </main>
       </div>
     );

@@ -3,11 +3,56 @@ import {connect} from 'react-redux';
 import './sentimentScore.css';
 
 export class SentimentScore extends Component {
+
+  renderEmojis (score) {
+    if (score < -150) {
+      return '💔💔💔';
+    }
+    if (score < -100) {
+      return '💔💔';
+    }
+    if (score < -50) {
+      return '💔';
+    }
+    if (score < -20) {
+      return "🙁";
+    }
+    if (score < -10) {
+      return "😔";
+    }
+    if (score < 0) {
+      return "😕";
+    }
+
+
+    if (score > 150) {
+      return '💖💖💖';
+    }
+    if (score > 100) {
+      return '💖💖';
+    }
+    if (score > 50) {
+      return '💖';
+    }
+    if (score > 20) {
+      return '😀';
+    }
+    if (score > 10) {
+      return '😊';
+    }
+    if (score > 0) {
+      return '🙂';
+    }
+    return "🤔";
+  }
+
   render() {
+    const score = this.props.sentimentScore;
     return (
       <div className="sentiment-score col">
         <h1>Sentiment Score:</h1>
-        {this.props.sentimentScore}
+        <p className="score">{score}</p>
+        <p className="emoji">{this.renderEmojis(score)}</p>
       </div>
     )
   }

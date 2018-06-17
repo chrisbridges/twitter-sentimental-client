@@ -12,7 +12,7 @@ export class stockSearch extends Component {
     e.preventDefault();
     const symbol = `$${this.input.value.toUpperCase()}`;
     if (symbol.trim() === '$') {
-      alert('Please enter a valid ticker - (eg. AAPL, MSFT, TSLA)');
+      alert('Please enter a valid ticker - (e.g. AAPL, MSFT, TSLA)');
       return;
     }
 

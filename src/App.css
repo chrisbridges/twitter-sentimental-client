@@ -9,12 +9,22 @@
   color: var(--my-white);
 }
 
+.App h1 {
+  font-size: 40px;
+}
+
+.App h2 {
+  margin-top: 10px;
+  font-size: 30px;
+}
+
 .loading {
   margin-top: 25px;
 }
 
 .loading p { 
   text-align: center;
+  color: var(--my-white);
 }
 
 .loading-spinner {
