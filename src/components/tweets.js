@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import './tweets.css';
+import './Tweets.css';
 import PropTypes from 'prop-types';
 import { RingLoader } from 'react-spinners';
 

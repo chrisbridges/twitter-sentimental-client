@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import './sentimentScore.css';
+import './SentimentScore.css';
 
 export class SentimentScore extends Component {
 

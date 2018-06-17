@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import './sentimentWords.css';
+import './SentimentWords.css';
 
-export class sentimentWords extends Component {
+export class SentimentWords extends Component {
 
   findMostFrequentWords (wordsObj) {
     let words = Object.keys(wordsObj);
@@ -52,4 +52,4 @@ const mapStateToProps = state => ({
   negativeWords: state.negativeWords
 });
 
-export default connect(mapStateToProps)(sentimentWords);
+export default connect(mapStateToProps)(SentimentWords);

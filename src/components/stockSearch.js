@@ -3,9 +3,9 @@ import {connect} from 'react-redux';
 import {subscribeToStock, returnToDefaultState} from '../actions/stockSearchActions';
 // import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 // import {withRouter} from 'react-router';
-import './stockSearch.css';
+import './StockSearch.css';
 
-export class stockSearch extends Component {
+export class StockSearch extends Component {
 // TODO: if another stock is searched for after initial search, disconnect previous socket
   // also do whenever anyone routes back to index route '/'
   search(e) {
@@ -49,4 +49,4 @@ const mapStateToProps = state => ({
 
 // export default withRouter(connect(mapStateToProps)(stockSearch));
 
-export default connect()(stockSearch);
+export default connect()(StockSearch);

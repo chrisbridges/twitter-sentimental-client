@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {BounceLoader} from 'react-spinners';
-// import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import TypedStocks from './components/TypedStocks';
-import StockSearch from './components/stockSearch';
+import StockSearch from './components/StockSearch';
 import FAQs from './components/Faqs';
-import Tweets from './components/tweets';
-import SentimentScore from './components/sentimentScore';
-import SentimentWords from './components/sentimentWords';
-import Chart from './components/Chart';
+import Loader from './components/Loader';
+import Dashboard from './components/Dashboard';
 import './App.css';
 
 class App extends Component {
@@ -18,30 +14,9 @@ class App extends Component {
       return null;
     }
     if (this.props.loading === true) {
-      return this.renderLoader();
+      return <Loader />;
     }
-    return (
-      <div className="dashboard">
-        <div className="analysis">
-          {/* <h1>What are people saying?</h1> */}
-          <Tweets />
-          <SentimentWords />
-          <SentimentScore />
-        </div>
-        <Chart />
-      </div>
-    );
-  }
-
-  renderLoader () {
-    return (
-      <div className="loading">
-        <div className="loading-spinner">
-          <BounceLoader color={'#45B25C'} loading={this.props.loading} />
-        </div>
-        <p>{"\n"}Waiting for someone to tweet something about {this.props.stock}</p>
-      </div>
-    );
+    return <Dashboard />;
   }
 
   render() {
@@ -63,8 +38,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  loading: state.loading,
-  stock: state.stock
+  loading: state.loading
 });
 
 export default connect(mapStateToProps)(App);
