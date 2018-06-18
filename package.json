@@ -5,6 +5,7 @@
   "dependencies": {
     "chart.js": "^2.7.2",
     "chartjs-plugin-streaming": "^1.4.1",
+    "enzyme-adapter-react-16": "^1.1.1",
     "moment": "^2.22.2",
     "prop-types": "^15.6.1",
     "react": "^16.4.0",
@@ -24,5 +25,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "enzyme": "^3.3.0",
+    "react-test-renderer": "^16.4.1"
   }
 }
