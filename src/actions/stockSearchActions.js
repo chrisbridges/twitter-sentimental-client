@@ -29,9 +29,6 @@ export const subscribeToStock = stock => dispatch => {
 };
 
 
-// Chris <-> Server
-// Lykaio <-> Server
-
 export const RETURN_TO_DEFAULT_STATE = 'RETURN_TO_DEFAULT_STATE';
 export const returnToDefaultState = () => ({
   type: RETURN_TO_DEFAULT_STATE
