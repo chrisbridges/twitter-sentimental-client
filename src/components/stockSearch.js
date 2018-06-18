@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {subscribeToStock, returnToDefaultState} from '../actions/stockSearchActions';
-// import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
-// import {withRouter} from 'react-router';
 import './StockSearch.css';
 
 export class StockSearch extends Component {
-// TODO: if another stock is searched for after initial search, disconnect previous socket
-  // also do whenever anyone routes back to index route '/'
   search(e) {
     e.preventDefault();
     const symbol = `$${this.input.value.toUpperCase()}`;
@@ -18,19 +14,8 @@ export class StockSearch extends Component {
 
     this.props.dispatch(returnToDefaultState());
     this.props.dispatch(subscribeToStock(symbol));
-    // only go to this once first tweet comes in
-    // if (this.props.receivedTweets) {
-    //   this.props.history.push('/analysis');
-    // }
   }
 
-  // renderAnalysis () {
-  //   if (this.props.receivedTweets) {
-  //     this.props.history.push('/analysis');
-  //   }
-  // }
-
-// should I use Redux Forms?
   render() {
     return (
       <div className="stock-search">
@@ -42,11 +27,5 @@ export class StockSearch extends Component {
     );
   }
 }
-
-const mapStateToProps = state => ({
-  // receivedTweets: state.tweets.length > 0
-});
-
-// export default withRouter(connect(mapStateToProps)(stockSearch));
 
 export default connect()(StockSearch);
