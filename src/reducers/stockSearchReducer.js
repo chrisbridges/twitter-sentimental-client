@@ -40,7 +40,7 @@ export function stockReducer(state=initialState, action) {
     });
   }
 
-  if (action.type = RETURN_TO_DEFAULT_STATE) {
+  if (action.type === RETURN_TO_DEFAULT_STATE) {
     return Object.assign({}, initialState);
   }
   

@@ -43,7 +43,7 @@ export class SentimentScore extends Component {
     if (score > 0) {
       return '🙂';
     }
-    return "🤔";
+    return <span role="img" aria-label="thinking face">🤔</span>;
   }
 
   render() {
