@@ -15,7 +15,7 @@ export class Tweets extends Component {
     }
     return this.renderTweets();
   }
-// make sure you're passing in 'this.props.loading' for renderSpinner()
+  
   renderTweets () {
     return this.props.tweets.map((tweet, index) => {
       return (
@@ -32,7 +32,7 @@ export class Tweets extends Component {
 
   render() {
     return (
-        <div className="tweets col">
+        <div aria-live="polite" className="tweets col">
           <h1>Tweets:</h1>
           <ul>{this.renderTweets()}</ul>
         </div>

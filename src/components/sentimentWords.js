@@ -27,7 +27,7 @@ export class SentimentWords extends Component {
 
   render() {
     return (
-      <div className="sentiment-words col">
+      <div aria-live="polite" className="sentiment-words col">
         <div className="positive-words">
           <h1>Positive:</h1>
           <ul>

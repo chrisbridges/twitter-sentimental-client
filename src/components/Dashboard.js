@@ -9,7 +9,6 @@ export class Dashboard extends Component {
     return (
       <div className="dashboard">
         <div className="analysis">
-          {/* <h1>What are people saying?</h1> */}
           <Tweets />
           <SentimentWords />
           <SentimentScore />

@@ -10,13 +10,13 @@ export class MyChart extends Component {
   componentDidMount () {
     var ctx = document.getElementById("myChart").getContext('2d');
     var myChart = new Chart(ctx, {
-      type: 'line',               // 'line', 'bar', 'bubble' and 'scatter' types are supported
+      type: 'line',         
       data: {
         datasets: [{
           label: 'Sentiment Score',
           backgroundColor: '#45B25C',
           borderColor: '#45B25C',
-          data: []            // empty at the beggining
+          data: []            
         }]
       },
       options: {
@@ -26,7 +26,7 @@ export class MyChart extends Component {
           }]
       },
       plugins: {
-        streaming: {            // enabled by default
+        streaming: {          
           duration: 20000,    // data in the past 20000 ms will be displayed
           refresh: 1000,      // onRefresh callback will be called every 1000 ms
           delay: 1000,        // delay of 1000 ms, so upcoming values are known before plotting a line
@@ -34,12 +34,10 @@ export class MyChart extends Component {
 
           // a callback to update datasets
           onRefresh: (chart) => {
-            // let score = this.retrieveScore();
             chart.data.datasets[0].data.push({
               x: Date.now(),
               y: this.props.sentimentScore
             });
-            // whenever you wanna use 'this' use an arrow =>
           }
         }
       }
@@ -54,7 +52,7 @@ export class MyChart extends Component {
 
   render() {
     return (
-      <div className="chart">
+      <div aria-hidden="true" className="chart">
         <canvas id="myChart"></canvas>
       </div>
     );

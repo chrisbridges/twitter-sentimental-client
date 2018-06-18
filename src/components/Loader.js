@@ -5,7 +5,7 @@ import {BounceLoader} from 'react-spinners';
 export class Loader extends Component {
   render() {
     return (
-      <div className="loading">
+      <div aria-live="assertive" className="loading">
         <div className="loading-spinner">
           <BounceLoader color={'#45B25C'} loading={this.props.loading} />
         </div>

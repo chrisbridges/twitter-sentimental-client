@@ -19,13 +19,9 @@ export const searchStockError = error => ({
   type: SEARCH_STOCK_ERROR,
   error
 });
-
+// only possible w/ redux-thunk
 export const subscribeToStock = stock => dispatch => {
-  // const socket = openSocket(API_BASE_URL);
-  // console.log(socket.id);
   dispatch(searchStockRequest(stock));
-  //TODO: disconnect any previous stock inquiries, on new search - maybe don't need?
-  // socket.emit(`unsubscribe`);
   socket.emit('request-symbol', stock);
   socket.on(`symbol-${stock}`, data => {
     dispatch(searchStockSuccess(data));

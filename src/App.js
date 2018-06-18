@@ -22,14 +22,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header>
+        <header role="banner">
           <h1>Pulse</h1>
           <h2>Performing Real-time Sentimental Analysis on Stocks</h2>
           <TypedStocks />
         </header>
         <StockSearch />
         <FAQs />
-        <main>
+        <main aria-live="assertive" role="main">
           {this.renderAnalysis()}
         </main>
       </div>

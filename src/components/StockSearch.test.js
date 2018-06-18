@@ -9,10 +9,10 @@ it('renders without crashing', () => {
 });
 
 it('should not submit an empty input', () => {
-  
+
 });
 
-it('should update the state with the searched-for stock' () => {
+it('should update the state with the searched-for stock', () => {
 
 });
 

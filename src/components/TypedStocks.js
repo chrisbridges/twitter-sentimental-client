@@ -18,7 +18,7 @@ export class TypedStocks extends Component {
 
   render() {
     return (
-      <div className="typed-stocks">
+      <div aria-hidden="true" className="typed-stocks">
         <h1>Find out what people are saying about:<br/><div className="typed-background"><span id="typed"></span></div></h1>
       </div>
     );

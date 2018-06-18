@@ -49,7 +49,7 @@ export class SentimentScore extends Component {
   render() {
     const score = this.props.sentimentScore;
     return (
-      <div className="sentiment-score col">
+      <div aria-live="polite" className="sentiment-score col">
         <h1>Sentiment Score:</h1>
         <p className="score">{score}</p>
         <p className="emoji">{this.renderEmojis(score)}</p>
