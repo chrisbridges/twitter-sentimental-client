@@ -4,6 +4,10 @@
 // import {Provider} from 'react-redux';
 // import store from '../store';
 
+
+it('returns true', () => {
+  return true;
+});
 // it('renders without crashing', () => {
 //   shallow(<Provider store={store}><StockSearch /></Provider>);
 // });

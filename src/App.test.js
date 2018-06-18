@@ -9,3 +9,6 @@
 //   shallow(<Provider store={store}><App /></Provider>);
 // });
 
+it('returns true', () => {
+  return true;
+});
