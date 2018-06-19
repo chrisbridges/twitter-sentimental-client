@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import Chart from 'chart.js';
 import PropTypes from 'prop-types';
-// import chartStreaming from 'chartjs-plugin-streaming';
+import chartStreaming from 'chartjs-plugin-streaming';
 import './MyChart.css';
 
 export class MyChart extends Component {
 
   componentDidMount () {
     var ctx = document.getElementById("myChart").getContext('2d');
-    new Chart(ctx, {
+    var streamingChart = new Chart(ctx, {
       type: 'line',         
       data: {
         datasets: [{
@@ -44,6 +44,7 @@ export class MyChart extends Component {
     }
   }
     );
+    console.log(chartStreaming, streamingChart);
   }
 
   retrieveScore () {

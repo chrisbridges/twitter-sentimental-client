@@ -22,7 +22,7 @@ export class Faqs extends Component {
       },
       {
         question: 'How is the Sentiment Score calculated?',
-        answer: 'Each word has a score attached to it. Generally positive words carry a positive score, while words perceived as negative possess a negative value. The scores are then summed, and we arrive at our Sentiment Score. The most common words that are being tweeted (and affecting the Sentiment Score) are displayed in the dashboard'
+        answer: 'Each word has a score attached to it. Generally positive words carry a positive score, while words perceived as negative possess a negative value. The scores are then summed, and we arrive at our Sentiment Score. The most common words that are being tweeted (and affecting the Sentiment Score) are displayed in the dashboard.'
       },
       {
         question: 'Should I derive investment decisions from the data that I see here?',
