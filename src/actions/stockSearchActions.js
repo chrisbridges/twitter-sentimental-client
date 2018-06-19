@@ -1,6 +1,6 @@
-// import {API_BASE_URL} from '../config';
+import {API_BASE_URL} from '../config';
 import openSocket from 'socket.io-client';
-const socket = openSocket(/*API_BASE_URL*/);
+const socket = openSocket(API_BASE_URL);
 
 export const SEARCH_STOCK_REQUEST = 'SEARCH_STOCK_REQUEST';
 export const searchStockRequest = stock => ({
