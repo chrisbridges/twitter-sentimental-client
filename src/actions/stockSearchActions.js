@@ -1,6 +1,5 @@
 import {API_BASE_URL} from '../config';
 import openSocket from 'socket.io-client';
-import { connect } from 'tls';
 
 const connectionOptions = {
   "force new connection" : true,
