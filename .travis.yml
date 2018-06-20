@@ -1,6 +1,6 @@
 language: node_js
 node_js: "8"
-# cache:
+# cache: bring back at some point
 #   directories:
 #     - node_modules
 script:
