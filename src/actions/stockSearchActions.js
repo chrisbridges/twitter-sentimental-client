@@ -1,6 +1,15 @@
 import {API_BASE_URL} from '../config';
 import openSocket from 'socket.io-client';
-const socket = openSocket(API_BASE_URL);
+import { connect } from 'tls';
+
+const connectionOptions = {
+  "force new connection" : true,
+  "reconnectionAttempts" : "Infinity",
+  "timeout" : 10000,
+  "transports" : ["websocket"]
+};
+
+const socket = openSocket(API_BASE_URL, connectionOptions);
 
 export const SEARCH_STOCK_REQUEST = 'SEARCH_STOCK_REQUEST';
 export const searchStockRequest = stock => ({
