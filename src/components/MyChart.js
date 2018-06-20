@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import Chart from 'chart.js';
 import PropTypes from 'prop-types';
+// eslint-disable-next-line 
 import chartStreaming from 'chartjs-plugin-streaming';
 import './MyChart.css';
 
@@ -9,7 +10,7 @@ export class MyChart extends Component {
 
   componentDidMount () {
     var ctx = document.getElementById("myChart").getContext('2d');
-    var streamingChart = new Chart(ctx, {
+    new Chart(ctx, {
       type: 'line',         
       data: {
         datasets: [{
@@ -44,7 +45,6 @@ export class MyChart extends Component {
     }
   }
     );
-    console.log(chartStreaming, streamingChart);
   }
 
   retrieveScore () {
