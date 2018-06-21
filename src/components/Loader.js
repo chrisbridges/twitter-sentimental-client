@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {BounceLoader} from 'react-spinners';
+import './Loader.css';
 
 // returns loading animation while fetching tweets
 export class Loader extends Component {
