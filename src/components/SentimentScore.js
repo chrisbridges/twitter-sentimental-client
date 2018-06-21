@@ -24,7 +24,6 @@ export class SentimentScore extends Component {
       return <span role="img" aria-label="unsure face">😕</span>;
     }
 
-
     if (score > 150) {
       return <span role="img" aria-label="3 hearts">💖💖💖</span>;
     }

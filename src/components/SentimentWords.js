@@ -12,7 +12,7 @@ export class SentimentWords extends Component {
     // return the 5 most frequently tweeted words
     return mostFrequentWords.splice(0,5);
   }
-// add 'loading' prop logic to not display these messages if loading === true
+  // placeholder text if no score-changing words have been received yet
   renderWords (words, positiveOrNegative) {
     if (this.props.tweets.length >= 1 && words.length === 0 && positiveOrNegative === 'positive') {
       return <p>When someone tweets something positive about {this.props.stock} it will show up here</p>;
@@ -24,7 +24,7 @@ export class SentimentWords extends Component {
       return <li key={index}>{word}</li>
     });
   }
-
+  // render most frequently tweeted score-altering words
   render() {
     return (
       <div aria-live="polite" className="sentiment-words col">

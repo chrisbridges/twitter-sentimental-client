@@ -6,12 +6,13 @@ import './StockSearch.css';
 export class StockSearch extends Component {
   search(e) {
     e.preventDefault();
+    // search for tweets with preceding '$' - the de-facto 'hashtag' for stocks
     const symbol = `$${this.input.value.toUpperCase()}`;
     if (symbol.trim() === '$') {
       alert('Please enter a valid ticker - (e.g. AAPL, MSFT, TSLA)');
       return;
     }
-
+    // clear state upon searching for new stock
     this.props.dispatch(returnToDefaultState());
     this.props.dispatch(subscribeToStock(symbol));
   }

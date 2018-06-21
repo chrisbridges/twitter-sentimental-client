@@ -5,6 +5,7 @@ import './TypedStocks.css';
 export class TypedStocks extends Component {
 
   componentDidMount () {
+    // stocks that will be displayed 
     const stocks = ['AAPL ^500 (Apple)', 'NFLX ^500 (Netflix)', 'TWTR ^500 (Twitter)', 'TSLA ^500 (Tesla)', 'FB ^500 (Facebook)', 'SNAP ^500 (Snapchat)', 'SPOT ^500 (Spotify)', 'Anything you\'d like :)'];
     const options = {
       stringsElement: '.typed',

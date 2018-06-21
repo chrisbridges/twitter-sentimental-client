@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import chartStreaming from 'chartjs-plugin-streaming';
 import './MyChart.css';
 
+// returns real-time chart graphing Sentiment Score
 export class MyChart extends Component {
 
   componentDidMount () {
