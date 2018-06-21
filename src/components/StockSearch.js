@@ -21,7 +21,7 @@ export class StockSearch extends Component {
     return (
       <div className="stock-search">
         <form role="search" onSubmit={(e) => this.search(e)}>
-          <input type="text" ref={input => this.input = input} />
+          <input type="text" ref={input => this.input = input} placeholder="Insert stock ticker"/>
           <button type="submit">Search</button>
         </form>
       </div>

@@ -8,6 +8,10 @@
   border: 4px solid var(--my-orange);
 }
 
+.stock-search input[type="text"]::placeholder {
+  font-size: 18px;
+}
+
 .stock-search input[type="text"], .stock-search button {
   font-size: 30px;
   height: 40px;
