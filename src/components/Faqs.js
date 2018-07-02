@@ -13,12 +13,12 @@ export class Faqs extends Component {
   renderFAQs () {
     const faqs = [
       {
-        question: 'What is sentimental analysis?',
-        answer: 'Sentimental Analysis is the computational analysis of text to determine whether the writer is expressing positive or negative emotions about the subject. Our attempt with this app is to gauge sentiment in real-time and make assumptions about whether the general public feels bullish or bearish on a particular equity based on current sentiment.'
+        question: 'What is sentiment analysis?',
+        answer: 'Sentiment Analysis is the computational analysis of text to determine whether the writer is expressing positive or negative emotions about the subject. Our attempt with this app is to gauge sentiment in real-time and make assumptions about whether the general public feels bullish or bearish on a particular equity based on current sentiment.'
       },
       {
         question: 'How are you conducting this analysis?',
-        answer: 'This analysis is done by live-streaming tweets about a particular subject and then running those tweets through our sentimental analysis engine, which then determines the "Sentiment Score". This provides an easy way to determine current sentiment. A positive Sentiment Score means current sentiment is amicable about the subject, and the opposite, accordingly, for a negative score.'
+        answer: 'This analysis is done by live-streaming tweets about a particular subject and then running those tweets through our sentiment analysis engine, which then determines the "Sentiment Score". This provides an easy way to determine current sentiment. A positive Sentiment Score means current sentiment is amicable about the subject, and the opposite, accordingly, for a negative score.'
       },
       {
         question: 'How is the Sentiment Score calculated?',

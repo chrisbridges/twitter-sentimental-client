@@ -24,7 +24,7 @@ class App extends Component {
       <div className="App">
         <header role="banner">
           <h1>Pulse</h1>
-          <h2>Performing Real-time Sentimental Analysis on Stocks</h2>
+          <h2>Performing Real-time Sentiment Analysis on Stocks</h2>
           <TypedStocks />
         </header>
         <StockSearch />
