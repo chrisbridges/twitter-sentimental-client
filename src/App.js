@@ -22,7 +22,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div class="padded-div">
+        <div className="padded-div">
           <header role="banner">
             <h1>Pulse</h1>
             <h2>Performing Real-time Sentiment Analysis on Stocks</h2>
