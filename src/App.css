@@ -1,7 +1,6 @@
-.App {
-  /* text-align: center; */
-  /* padding: 5px 10px; */
-  
+.padded-div {
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .App header {
@@ -48,9 +47,6 @@
   }
 
   .col {
-    /* justify-content: space-between; */
-    /* flex: 1; */
     width: 30%;
-    /* margin: 0 10px 0 0; */
   }
 }
