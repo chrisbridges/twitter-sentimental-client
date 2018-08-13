@@ -10,7 +10,7 @@ export class Dashboard extends Component {
     this.loaded.scrollIntoView({behavior: 'smooth'})
   }
 
-  render() {
+  render () {
     return (
       <div className="dashboard" ref={ref => this.loaded = ref}>
         <div className="analysis">
