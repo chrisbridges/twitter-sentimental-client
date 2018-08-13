@@ -5,9 +5,14 @@ import './Loader.css';
 
 // returns loading animation while fetching tweets
 export class Loader extends Component {
+
+  componentDidMount () {
+    this.loaded.scrollIntoView({behavior: 'smooth'})
+  }
+
   render() {
     return (
-      <div aria-live="assertive" className="loading">
+      <div aria-live="assertive" className="loading" ref={ref => this.loaded = ref}>
         <div className="loading-spinner">
           <BounceLoader color={'#45B25C'} loading={this.props.loading} />
         </div>

@@ -5,9 +5,14 @@ import SentimentScore from './SentimentScore';
 import MyChart from './MyChart';
 
 export class Dashboard extends Component {
+
+  componentDidMount () {
+    this.loaded.scrollIntoView({behavior: 'smooth'})
+  }
+
   render() {
     return (
-      <div className="dashboard">
+      <div className="dashboard" ref={ref => this.loaded = ref}>
         <div className="analysis">
           <Tweets />
           <SentimentWords />
